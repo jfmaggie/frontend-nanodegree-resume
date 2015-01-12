@@ -134,25 +134,35 @@ projects.display = function() {
 education.display = function() {
 	// TODO: to display education object in HTML
 	
-	$("#education").append(HTMLschoolStart);	
+	$("#education").append(HTMLschoolStart);
+	
 	for (var sch in education.schools) {
-		$(".education-entry:last").append(HTMLschoolName.replace("%data%",education.schools[sch].name));
-		$(".education-entry:last").append(HTMLschoolDegree.replace("%data%",education.schools[sch].degree));
+		var formattedSchoolName = HTMLschoolName.replace("%data%",education.schools[sch].name) + HTMLschoolDegree.replace("%data%",education.schools[sch].degree);
+		$(".education-entry:last").append(formattedSchoolName);
 		$(".education-entry:last").append(HTMLschoolDates.replace("%data%",education.schools[sch].dates));
 		$(".education-entry:last").append(HTMLschoolLocation.replace("%data%",education.schools[sch].location));
 		$(".education-entry:last").append(HTMLschoolMajor.replace("%data%",education.schools[sch].majors));
 	};
 	
-	$("#education").append(HTMLonlineClasses);	
+	$(".education-entry").append(HTMLonlineClasses);	
 	for (var cla in education.onlineCourses) {
-		$(".education-entry:last").append(HTMLonlineTitle.replace("%data%",education.onlineCourses[cla].title));
-		$(".education-entry:last").append(HTMLonlineSchool.replace("%data%",education.onlineCourses[cla].school));
+		var fomattedOnlineTitle = HTMLonlineTitle.replace("%data%",education.onlineCourses[cla].title) + HTMLonlineSchool.replace("%data%",education.onlineCourses[cla].school);
+		$(".education-entry:last").append(fomattedOnlineTitle);
 		$(".education-entry:last").append(HTMLonlineDates.replace("%data%",education.onlineCourses[cla].dates));
 		$(".education-entry:last").append(HTMLonlineURL.replace("%data%",education.onlineCourses[cla].url));
 	};
+	
 }
 
 bio.display();
 work.display();
 projects.display();
 education.display();
+
+function inName(name){
+  name = bio.name.trim().split(" ");
+  name[1] = name[1].toUpperCase();
+  name[0] = name[0].slice(0, 1).toUpperCase() + name[0].slice(1).toLowerCase();
+  return name[0] + " " + name[1];
+}
+$("#main").append(internationalizeButton);
