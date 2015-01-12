@@ -71,7 +71,7 @@ var projects = {
 	"projects" : [
 	{
 		"title" : "Mockup to Website",
-		"dates" : "Feb 9",
+		"dates" : "2014",
 		"description" : "first project of udacity",
 		"images" : ["images/mug.png","images/mug.png"]
 	}
@@ -111,8 +111,8 @@ work.display = function() {
 	// TODO: to display work object in HTML
 	$("#workExperience").append(HTMLworkStart);
 	for (var job in work.jobs) {
-		$(".work-entry:last").append(HTMLworkEmployer.replace("%data%",work.jobs[job].employer));
-		$(".work-entry:last").append(HTMLworkTitle.replace("%data%",work.jobs[job].title));
+		var fomattedEmployer = HTMLworkEmployer.replace("%data%",work.jobs[job].employer) + HTMLworkTitle.replace("%data%",work.jobs[job].title);
+		$(".work-entry:last").append(fomattedEmployer);
 		$(".work-entry:last").append(HTMLworkDates.replace("%data%",work.jobs[job].dates));
 		$(".work-entry:last").append(HTMLworkLocation.replace("%data%",work.jobs[job].location));
 		$(".work-entry:last").append(HTMLworkDescription.replace("%data%",work.jobs[job].description));
