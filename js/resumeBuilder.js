@@ -1,6 +1,6 @@
 var bio = {
 	"name" : "Meichen Zhou",
-	"role" : "Web Developer",	
+	"role" : "Web Developer",
 	"contacts" : {
 		"mobile" : "1234567890",
 		"email" : "jfmaggie@gmail.com",
@@ -19,13 +19,13 @@ bio.display = function() {
 	var formattedRole = HTMLheaderRole.replace("%data%", bio.role);
 	$("#header").prepend(formattedRole);
 	$("#header").prepend(formattedName);
-	
+
 	$("#topContacts").append(HTMLmobile.replace("%data%",bio.contacts.mobile));
 	$("#topContacts").append(HTMLemail.replace("%data%",bio.contacts.email));
 	$("#topContacts").append(HTMLgithub.replace("%data%",bio.contacts.github));
 	$("#topContacts").append(HTMLtwitter.replace("%data%",bio.contacts.twitter));
 	$("#topContacts").append(HTMLlocation.replace("%data%",bio.contacts.location));
-	
+
 	$("#header").append(HTMLbioPic.replace("%data%",bio.biopic));
 	$("#header").append(HTMLWelcomeMsg.replace("%data%",bio.welcomeMessage));
 
@@ -33,12 +33,12 @@ bio.display = function() {
 	for (var skill in bio.skills) {
 		$("#header").append(HTMLskills.replace("%data%",bio.skills[skill]));
 	};
-	
+
 	$("#footerContacts").append(HTMLmobile.replace("%data%",bio.contacts.mobile));
 	$("#footerContacts").append(HTMLemail.replace("%data%",bio.contacts.email));
 	$("#footerContacts").append(HTMLgithub.replace("%data%",bio.contacts.github));
 	$("#footerContacts").append(HTMLtwitter.replace("%data%",bio.contacts.twitter));
-	$("#footerContacts").append(HTMLlocation.replace("%data%",bio.contacts.location));	
+	$("#footerContacts").append(HTMLlocation.replace("%data%",bio.contacts.location));
 }
 
 var education = {
@@ -77,7 +77,7 @@ var education = {
 
 education.display = function() {
 	// TODO: to display education object in HTML
-	
+
 	$("#education").append(HTMLschoolStart);
 	for (var sch in education.schools) {
 		var formattedSchoolName = HTMLschoolName.replace("%data%",education.schools[sch].name) + HTMLschoolDegree.replace("%data%",education.schools[sch].degree);
@@ -86,15 +86,15 @@ education.display = function() {
 		$(".education-entry:last").append(HTMLschoolLocation.replace("%data%",education.schools[sch].location));
 		$(".education-entry:last").append(HTMLschoolMajor.replace("%data%",education.schools[sch].majors));
 	};
-	
-	$(".education-entry").append(HTMLonlineClasses);	
+
+	$(".education-entry").append(HTMLonlineClasses);
 	for (var cla in education.onlineCourses) {
 		var fomattedOnlineTitle = HTMLonlineTitle.replace("%data%",education.onlineCourses[cla].title) + HTMLonlineSchool.replace("%data%",education.onlineCourses[cla].school);
 		$(".education-entry:last").append(fomattedOnlineTitle);
 		$(".education-entry:last").append(HTMLonlineDates.replace("%data%",education.onlineCourses[cla].dates));
 		$(".education-entry:last").append(HTMLonlineURL.replace("%data%",education.onlineCourses[cla].url));
 	};
-	
+
 }
 
 var work = {
@@ -107,7 +107,7 @@ var work = {
 		"description" : "Working in ITS."
 	},
 	{
-		
+
 		"employer" : "UFV",
 		"title" : "IT Technician",
 		"location" : "Abbotsford, BC",
@@ -147,8 +147,11 @@ projects.display = function() {
 		$(".project-entry:last").append(HTMLprojectTitle.replace("%data%",projects.projects[pro].title));
 		$(".project-entry:last").append(HTMLprojectDates.replace("%data%",projects.projects[pro].dates));
 		$(".project-entry:last").append(HTMLprojectDescription.replace("%data%",projects.projects[pro].description));
-		$(".project-entry:last").append(HTMLprojectImage.replace("%data%",projects.projects[pro].images[pro]));
-		$(".project-entry:last").append(HTMLprojectImage.replace("%data%",projects.projects[pro].images[pro]));
+		if (projects.projects[pro].images.length > 0) {
+			for(var img in projects.projects[pro].images){
+				$(".project-entry:last").append(HTMLprojectImage.replace("%data%",projects.projects[pro].images[img]));
+			}
+		};
 	};
 }
 
