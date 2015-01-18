@@ -104,7 +104,7 @@ var work = {
 		"title" : "System Specialist",
 		"location" : "Abbotsford, BC",
 		"dates" : "May 15, 2013 - Current",
-		"description" : "Working in ITS."
+		"description" : "The role carries the duties including technical customer support, responsibility for the implementation of technical aspects of customer projects, technical evaluation of products and systems, recommending and documenting possible product and system enhancements."
 	},
 	{
 
@@ -112,7 +112,7 @@ var work = {
 		"title" : "IT Technician",
 		"location" : "Abbotsford, BC",
 		"dates" : "Sep 1, 2012 - Apr 30, 2013",
-		"description" : "Working in ITS."
+		"description" : "Duties include installing, diagnosing, repairing, and upgrading desktop hardware and peripheral equipment. Other important responsibilities include software imaging and deployment through Microsoft SCCM infrastructure. This role is also heavily involved with Incident Managemnet software which requires the tracking, reporting and updating of IT issues and problems."
 	}
 	]
 };
@@ -134,8 +134,8 @@ var projects = {
 	{
 		"title" : "Mockup to Website",
 		"dates" : "2014",
-		"description" : "first project of udacity",
-		"images" : ["images/mug.png","images/mug.png"]
+		"description" : "I was provided with a design mockup as a PDF-file and replicated that design in HTML and CSS. I developed a responsive website that will display images, descriptions and links to each of the portfolio projects.",
+		"images" : ["images/mockup.png","images/mockup.png"]
 	}
 	]
 };
@@ -155,18 +155,18 @@ projects.display = function() {
 	};
 }
 
-
-bio.display();
-work.display();
-projects.display();
-education.display();
-
 function inName(name){
   name = bio.name.trim().split(" ");
   name[1] = name[1].toUpperCase();
   name[0] = name[0].slice(0, 1).toUpperCase() + name[0].slice(1).toLowerCase();
   return name[0] + " " + name[1];
 }
+
+bio.display();
+work.display();
+projects.display();
+education.display();
+
 $("#main").append(internationalizeButton);
 
 $("#mapDiv").append(googleMap);
