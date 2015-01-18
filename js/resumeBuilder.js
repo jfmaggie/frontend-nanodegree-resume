@@ -168,3 +168,5 @@ function inName(name){
   return name[0] + " " + name[1];
 }
 $("#main").append(internationalizeButton);
+
+$("#mapDiv").append(googleMap);
